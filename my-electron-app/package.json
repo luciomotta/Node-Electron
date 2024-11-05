@@ -1,0 +1,67 @@
+{
+  "name": "my-electron-app",
+  "version": "1.0.0",
+  "description": "Meu aplicativo Electron para demonstrar funcionalidades.",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron-forge start",
+    "make": "electron-forge make",
+    "package": "electron-forge package"
+  },
+  "devDependencies": {
+    "@electron-forge/cli": "^7.5.0",
+    "@electron-forge/maker-deb": "^7.5.0",
+    "@electron-forge/maker-rpm": "^7.5.0",
+    "@electron-forge/maker-squirrel": "^7.5.0",
+    "@electron-forge/maker-zip": "^7.5.0",
+    "@electron-forge/plugin-auto-unpack-natives": "^7.5.0",
+    "@electron-forge/plugin-fuses": "^7.5.0",
+    "@electron/fuses": "^1.8.0",
+    "electron": "^33.0.2"
+  },
+  "config": {
+    "forge": {
+      "packagerConfig": {
+        "icon": "./src/img/icon.png",
+        "name": "my-electron-app",
+        "authors": "Lúcio Motta"
+      },
+      "makers": [
+        {
+          "name": "@electron-forge/maker-squirrel",
+          "config": {
+            "name": "my_electron_app",
+            "authors": "Lúcio Motta"
+          }
+        },
+        {
+          "name": "@electron-forge/maker-zip",
+          "platforms": [
+            "darwin"
+          ]
+        },
+        {
+          "name": "@electron-forge/maker-deb",
+          "config": {}
+        },
+        {
+          "name": "@electron-forge/maker-rpm",
+          "config": {}
+        }
+      ]
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/luciomotta/Node_DOC.git"
+  },
+  "author": "Lúcio Motta",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/luciomotta/Node_DOC/issues"
+  },
+  "homepage": "https://github.com/luciomotta/Node_DOC#readme",
+  "dependencies": {
+    "electron-squirrel-startup": "^1.0.1"
+  }
+}
