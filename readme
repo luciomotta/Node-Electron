@@ -1,11 +1,3 @@
----
-
-# My Electron App
-
-Este documento descreve o processo de configuração e execução de um aplicativo Node.js + Electron, além do empacotamento e distribuição usando o Electron Forge.
-
----
-
 ## Passo a Passo para Rodar o Node + Electron
 
 ### 1. Instalação das Dependências
