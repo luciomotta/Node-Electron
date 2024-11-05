@@ -1,0 +1,105 @@
+---
+
+# My Electron App
+
+Este documento descreve o processo de configuração e execução de um aplicativo Node.js + Electron, além do empacotamento e distribuição usando o Electron Forge.
+
+---
+
+## Passo a Passo para Rodar o Node + Electron
+
+### 1. Instalação das Dependências
+
+Certifique-se de ter o **Node.js** e o **npm** instalados em sua máquina. Para instalar as dependências necessárias, execute:
+
+```bash
+npm install
+```
+
+### 2. Estrutura do Projeto
+
+A estrutura do projeto é a seguinte:
+
+```
+my-electron-app/
+├── index.html        # Contém o HTML básico do aplicativo.
+├── main.js           # Script principal que cria a janela do navegador e carrega o index.html.
+├── package.json      # Contém as informações do projeto e scripts de execução.
+├── preload.js        # Script que substitui o texto dos elementos HTML com as versões do Chrome, Node e Electron.
+└── README.md         # Este arquivo.
+```
+
+### 3. Executando o Aplicativo
+
+Para iniciar o aplicativo, execute o seguinte comando:
+
+```bash
+npm start
+```
+
+---
+
+## Empacotamento e Distribuição com Electron Forge
+
+### O que é o Electron Forge?
+
+O **Electron Forge** é uma ferramenta que ajuda a criar, empacotar e distribuir aplicativos Electron. Ele fornece uma maneira fácil de preparar seu aplicativo para produção, incluindo suporte para criar instaladores.
+
+### Etapas para Empacotar e Distribuir seu Aplicativo Electron
+
+1. **Instalação do Electron Forge**
+
+   Para começar, instale o Electron Forge como uma dependência de desenvolvimento:
+
+   ```bash
+   npm install --save-dev @electron-forge/cli
+   npx electron-forge import
+   ```
+
+   Isso configura o Electron Forge em seu projeto, adicionando as dependências necessárias e ajustando seu `package.json`.
+
+2. **Adicione uma Descrição ao seu `package.json`**
+
+   Certifique-se de que o `package.json` tenha uma descrição válida:
+
+   ```json
+   "description": "Meu aplicativo Electron para demonstrar funcionalidades."
+   ```
+
+3. **Criar o Pacote**
+
+   Para empacotar seu aplicativo, use o comando:
+
+   ```bash
+   npm run make
+   ```
+
+   Isso instrui o Electron Forge a empacotar seu aplicativo para distribuição. O comando cria uma pasta chamada `out`, onde os arquivos empacotados serão armazenados.
+
+4. **Verifique a Pasta `out`**
+
+   Após executar o comando `npm run make`, você deve encontrar a pasta `out` no diretório do seu projeto. Dentro dessa pasta, haverá subpastas com os pacotes gerados para diferentes plataformas.
+
+   Exemplo da estrutura da pasta para macOS:
+
+   ```
+   out/
+   ├── make/zip/darwin/x64/my-electron-app-darwin-x64-1.0.0.zip
+   └── my-electron-app-darwin-x64/my-electron-app.app/Contents/MacOS/my-electron-app
+   ```
+
+5. **Distribuição**
+
+   Após empacotar seu aplicativo, você pode distribuir os arquivos gerados. Dependendo do sistema operacional, você pode fornecer o `.zip`, `.exe`, ou outros formatos de instalador aos usuários.
+
+### O que fazer a seguir:
+
+- Verifique o conteúdo da pasta `out` para garantir que o empacotamento foi concluído com sucesso.
+- Teste o pacote gerado (por exemplo, descompactar o `.zip` no macOS ou executar o `.exe` no Windows) para garantir que seu aplicativo funciona como esperado.
+- Distribua os arquivos para seus usuários ou publique em um site, GitHub, ou outra plataforma de compartilhamento.
+
+---
+
+Se precisar de mais ajuda em alguma etapa específica ou tiver problemas ao empacotar ou distribuir seu aplicativo, não hesite em perguntar!
+
+---
